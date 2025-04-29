@@ -23,11 +23,11 @@ void HalleyMethod(double a, double b, double error)
         return;
     }
     double x0 = (a + b) / 2;
-    double x1 = x0-((2 * fof(x0) * dof(x0)) / (pow((2 * ddof(x0)),2) - fof(x0) * ddof(x0)));
+    double x1 = x0-((2 * fof(x0) * dof(x0)) / ((2*pow(ddof(x0),2)) - fof(x0) * ddof(x0)));
 
     while (fabs(fof(x1)) > error)
     {
-        x1 = x0-((2 * fof(x0) * dof(x0)) / (pow((2 * ddof(x0)),2) - fof(x0) * ddof(x0)));
+        x1 = x0-((2 * fof(x0) * dof(x0)) / ((2*pow(ddof(x0),2)) - fof(x0) * ddof(x0)));
 
         if (fof(x0) == 0.0)
         {
@@ -40,6 +40,8 @@ void HalleyMethod(double a, double b, double error)
     }
     cout << endl;
     cout << "The approximate root using Halley's method is:" << fixed << setprecision(5) << x1;
+    cout << endl;
+    cout << endl;
 }
 int main()
 {
